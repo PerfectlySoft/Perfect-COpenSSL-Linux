@@ -1,0 +1,42 @@
+//
+//  Package.swift
+//  PerfectLib
+//
+//  Created by Kyle Jessup on 3/22/16.
+//	Copyright (C) 2016 PerfectlySoft, Inc.
+//
+//===----------------------------------------------------------------------===//
+//
+// This source file is part of the Perfect.org open source project
+//
+// Copyright (c) 2015 - 2016 PerfectlySoft Inc. and the Perfect project authors
+// Licensed under Apache License v2.0
+//
+// See http://perfect.org/licensing.html for license information
+//
+//===----------------------------------------------------------------------===//
+//
+
+import PackageDescription
+
+#if os(OSX)
+import Darwin
+do {
+	let aRes = access("/usr/local/include/openssl", F_OK)
+	guard 0 == aRes else {
+		print("Error: OpenSSL not properly installed")
+		print("brew install openssl")
+		print("brew link openssl --force")
+		exit(-1)
+	}
+}
+#endif
+
+let package = Package(
+	name: "OpenSSL",
+	pkgConfig: "openssl",
+	providers: [
+	           	.Brew("openssl"),
+	           	.Apt("openssl"),
+	]
+)

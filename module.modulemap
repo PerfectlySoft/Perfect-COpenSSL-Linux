@@ -1,0 +1,10 @@
+module OpenSSL {
+	header "openssl/ssl.h"
+	header "openssl/err.h"
+	header "openssl/x509.h"
+	header "openssl/sha.h"
+	header "openssl/bio.h"
+	link "crypto"
+	link "ssl"
+	export *
+}
