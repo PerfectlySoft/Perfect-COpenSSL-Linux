@@ -1,9 +1,5 @@
 module OpenSSL {
-	header "/usr/include/openssl/ssl.h"
-	header "/usr/include/openssl/err.h"
-	header "/usr/include/openssl/x509.h"
-	header "/usr/include/openssl/sha.h"
-	header "/usr/include/openssl/bio.h"
+	header "openssl.h"
 	link "crypto"
 	link "ssl"
 	export *
