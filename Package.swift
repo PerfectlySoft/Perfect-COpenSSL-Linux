@@ -37,6 +37,6 @@ let package = Package(
 	pkgConfig: "openssl",
 	providers: [
 	           	.Brew("openssl"),
-	           	.Apt("libssl-dev"),
+	           	.Apt("libssl"),
 	]
 )
