@@ -20,7 +20,5 @@
 import PackageDescription
 
 let package = Package(
-	name: "COpenSSL",
-	pkgConfig: "openssl",
-	providers: [.Apt("libssl")]
+	name: "COpenSSL"
 )

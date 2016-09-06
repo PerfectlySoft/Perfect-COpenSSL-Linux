@@ -1,9 +1,5 @@
 
-#include "openssl/ssl.h"
-#include "openssl/err.h"
-#include "openssl/x509.h"
-#include "openssl/sha.h"
-#include "openssl/bio.h"
+#include "openssl.h"
 
 #ifdef SSL_CTRL_SET_ECDH_AUTO
 int openssl_compat_have_ecdh_auto = 1;
