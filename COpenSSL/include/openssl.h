@@ -4,6 +4,7 @@
 #include "openssl/x509.h"
 #include "openssl/sha.h"
 #include "openssl/bio.h"
+#include "openssl/hmac.h"
 
 #ifndef SSL_CTRL_SET_ECDH_AUTO
 int SSL_CTRL_SET_ECDH_AUTO;
