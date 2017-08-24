@@ -6,6 +6,7 @@
 #include "openssl/bio.h"
 #include "openssl/hmac.h"
 #include "openssl/rand.h"
+#include "openssl/cms.h"
 
 #ifndef SSL_CTRL_SET_ECDH_AUTO
 int SSL_CTRL_SET_ECDH_AUTO;
