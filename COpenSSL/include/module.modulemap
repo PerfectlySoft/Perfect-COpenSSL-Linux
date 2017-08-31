@@ -2,6 +2,5 @@ module COpenSSL {
 	header "openssl.h"
 	link "crypto"
 	link "ssl"
-	link "COpenSSL"
 	export *
 }
