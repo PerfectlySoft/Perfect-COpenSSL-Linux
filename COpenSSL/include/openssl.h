@@ -7,6 +7,11 @@
 #include "openssl/hmac.h"
 #include "openssl/rand.h"
 #include "openssl/cms.h"
+#include "openssl/md4.h"
+#include "openssl/md5.h"
+#include "openssl/sha.h"
+#include "openssl/ripemd.h"
+#include "openssl/whrlpool.h"
 
 #ifndef SSL_CTRL_SET_ECDH_AUTO
 int SSL_CTRL_SET_ECDH_AUTO;
