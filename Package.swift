@@ -1,9 +1,12 @@
+// swift-tools-version:4.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 //
 //  Package.swift
-//  COpenSSL
+//  COpenSSL-Linux
 //
 //  Created by Kyle Jessup on 3/22/16.
-//	Copyright (C) 2016 PerfectlySoft, Inc.
+//  Copyright (C) 2016 PerfectlySoft, Inc.
 //
 //===----------------------------------------------------------------------===//
 //
@@ -20,5 +23,11 @@
 import PackageDescription
 
 let package = Package(
-	name: "COpenSSL"
+    name: "COpenSSL",
+    products: [
+        .library(name: "COpenSSL", targets: ["COpenSSL"])
+    ],
+    targets: [
+        .target(name: "COpenSSL", path: "COpenSSL", exclude: ["scripts"])
+    ]
 )
