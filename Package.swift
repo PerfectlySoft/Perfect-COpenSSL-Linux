@@ -1,3 +1,4 @@
+// swift-tools-version:4.0
 //
 //  Package.swift
 //  COpenSSL
@@ -20,5 +21,11 @@
 import PackageDescription
 
 let package = Package(
-	name: "COpenSSL"
+	name: "COpenSSL",
+	products: [
+		.library(name: "COpenSSL", targets: ["COpenSSL"])
+	],
+	targets: [
+		.target(name: "COpenSSL", path: "COpenSSL", exclude: ["scripts"])
+	]
 )
