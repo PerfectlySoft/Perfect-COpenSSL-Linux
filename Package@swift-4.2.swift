@@ -1,4 +1,4 @@
-// swift-tools-version:4.1
+// swift-tools-version:4.2
 //
 //  Package.swift
 //  COpenSSL
@@ -26,6 +26,6 @@ let package = Package(
 		.library(name: "COpenSSL", targets: ["COpenSSL"])
 	],
 	targets: [
-		.target(name: "COpenSSL")
+		.systemLibrary(name: "COpenSSL", pkgConfig: "openssl", providers: [.apt(["openssl libssl-dev"])])
 	]
 )
