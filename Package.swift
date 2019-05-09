@@ -26,6 +26,6 @@ let package = Package(
 		.library(name: "COpenSSL", targets: ["COpenSSL"])
 	],
 	targets: [
-		.target(name: "COpenSSL", path: "Sources/COpenSSL")
+		.target(name: "COpenSSL", path: "Sources@swift-4.1/COpenSSL")
 	]
 )
