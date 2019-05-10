@@ -61,10 +61,10 @@ static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
 }
 static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
 #ifdef SSL_CTRL_SET_ECDH_AUTO
-    SSL_CTX_ctrl(ctx, SSL_CTRL_SET_ECDH_AUTO, 1, NULL);
+    SSL_CTX_ctrl(sslCtx, SSL_CTRL_SET_ECDH_AUTO, 1, NULL);
 #endif
-    SSL_CTX_ctrl(sslCtx, SSL_CTRL_MODE, SSL_MODE_AUTO_RETRY, nil);
-    SSL_CTX_ctrl(sslCtx, SSL_CTRL_OPTIONS, SSL_OP_ALL, nil);
+    SSL_CTX_ctrl(sslCtx, SSL_CTRL_MODE, SSL_MODE_AUTO_RETRY, NULL);
+    SSL_CTX_ctrl(sslCtx, SSL_CTRL_OPTIONS, SSL_OP_ALL, NULL);
 }
 #else
 static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
