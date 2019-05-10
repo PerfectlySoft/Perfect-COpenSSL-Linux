@@ -50,7 +50,7 @@ static size_t copenssl_stack_st_X509_NAME_num(struct stack_st_X509_NAME * p) {
 static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
     return CRYPTO_malloc((int)num, file, line);
 }
-static void copenssl_CRYPTO_free(void * obj, const char *, int) {
+static void copenssl_CRYPTO_free(void * obj, const char *file, int line) {
     CRYPTO_free(obj);
 }
 static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
