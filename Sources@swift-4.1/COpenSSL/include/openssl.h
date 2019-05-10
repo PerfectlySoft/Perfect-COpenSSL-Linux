@@ -46,13 +46,12 @@ static size_t copenssl_stack_st_X509_NAME_num(struct stack_st_X509_NAME * p) {
     return sk_X509_NAME_num(p);
 }
 
-static void copenssl_CRYPTO_free(void * obj, const char *file, int line) {
-    CRYPTO_free(obj, file, line);
-}
-
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
 static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
     return CRYPTO_malloc((int)num, file, line);
+}
+static void copenssl_CRYPTO_free(void * obj, const char *file, int line) {
+    CRYPTO_free(obj);
 }
 static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
 #ifdef SSL_CTRL_SET_ECDH_AUTO
@@ -64,6 +63,9 @@ static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
 #else
 static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
     return CRYPTO_malloc(num, file, line);
+}
+static void copenssl_CRYPTO_free(void * obj, const char *file, int line) {
+    CRYPTO_free(obj, file, line);
 }
 static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
     SSL_CTX_set_options(sslCtx, SSL_OP_ALL);
