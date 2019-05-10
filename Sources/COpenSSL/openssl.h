@@ -36,23 +36,18 @@ static void copenssl_EVP_MD_CTX_destroy(EVP_MD_CTX * ctx) {
 	EVP_MD_CTX_destroy(ctx);
 }
 
-static void copenssl_ERR_load_crypto_strings() {
-    ERR_load_crypto_strings();
-}
-
-static void copenssl_OPENSSL_add_all_algorithms_conf() {
-    OPENSSL_add_all_algorithms_conf();
-}
-
-static void copenssl_SSL_load_error_strings() {
-    SSL_load_error_strings();
-}
-
 static void copenssl_SSL_library_init() {
     SSL_library_init();
+    ERR_load_crypto_strings();
+    SSL_load_error_strings();
+    OPENSSL_add_all_algorithms_conf();
 }
 static size_t copenssl_stack_st_X509_NAME_num(struct stack_st_X509_NAME * p) {
     return sk_X509_NAME_num(p);
+}
+
+static void copenssl_CRYPTO_free(void * obj, const char *file, int line) {
+    CRYPTO_free(obj, file, line);
 }
 
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
@@ -72,10 +67,6 @@ static void * copenssl_CRYPTO_malloc(size_t num, const char *file, int line) {
 }
 static void copenssl_SSL_CTX_set_options(SSL_CTX * sslCtx) {
     SSL_CTX_set_options(sslCtx, SSL_OP_ALL);
-}
-#undef OPENSSL_free
-static void OPENSSL_free(void * obj) {
-    CRYPTO_free(obj, OPENSSL_FILE, OPENSSL_LINE);
 }
 #undef CRYPTO_set_locking_callback
 static void CRYPTO_set_locking_callback(void (*func) (int mode, int type,
